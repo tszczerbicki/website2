@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "testowyblogquarto TS"
+  title: "Statystyki giełdowe"
   navbar:
     right:
       - about.qmd
@@ -13,7 +13,7 @@ website:
         href: https://twitter.com
 format:
   html:
-    theme: cosmo
+    theme: litera
     css: styles.css
 
 editor: visual

@@ -1,13 +1,15 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
+title: "Testowy post z kodem"
+author: "Tomasz Szczerbicki"
 date: "2023-10-22"
-categories: [news, code, analysis]
+categories: [news, code, analysis, wig20, GPW]
 image: "image.jpg"
 ---
 
-This is a post with executable code.
+Pierwszy post jaki dodałem z kodem. Poniżej widać chunka.
 
 ```{r}
 1 + 1
 ```
+
+W tym poście dokonałęm testowej edycji 23.10.2023 roku. Godzina zmiany to 21:57.

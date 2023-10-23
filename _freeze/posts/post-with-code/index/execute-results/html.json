@@ -1,7 +1,7 @@
 {
-  "hash": "8d348232208f21d202e935e524cfcf07",
+  "hash": "6c7f9ee0086dfec5666ec31a7f46eee1",
   "result": {
-    "markdown": "---\ntitle: \"Post With Code\"\nauthor: \"Harlow Malloc\"\ndate: \"2023-10-22\"\ncategories: [news, code, analysis]\nimage: \"image.jpg\"\n---\n\n\nThis is a post with executable code.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Testowy post z kodem\"\nauthor: \"Tomasz Szczerbicki\"\ndate: \"2023-10-22\"\ncategories: [news, code, analysis, wig20, GPW]\nimage: \"image.jpg\"\n---\n\n\nPierwszy post jaki dodałem z kodem. Poniżej widać chunka.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n\nW tym poście dokonałęm testowej edycji 23.10.2023 roku. Godzina zmiany to 21:57.\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

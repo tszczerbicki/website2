@@ -2,23 +2,30 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "O blogu",
     "section": "",
     "text": "About this blog"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "testowyblogquarto",
+    "title": "Statystyki giełdowe",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nOct 19, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Pierwszy właściwy wpis\n\n\n\n\n\n\n\nnews\n\n\ngiełda\n\n\nWIG20\n\n\nPCO\n\n\nJSW\n\n\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nTomasz Szczerbicki\n\n\n\n\n\n\n  \n\n\n\n\nTestowy post z kodem\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\nwig20\n\n\nGPW\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2023\n\n\nTomasz Szczerbicki\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nOct 19, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/pierwszy/index.html",
+    "href": "posts/pierwszy/index.html",
+    "title": "Pierwszy właściwy wpis",
+    "section": "",
+    "text": "Jest to pierwszy wpis tematyczny. Od tego momentu zaczynamy pracę ze statystykami. Poniżej jest testowe zdjęcie.\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts.\n\nTabelka\n\n\nTicker\nClose\nVol\n\n\n\n\nJSW\n2\n223\n\n\nPCO\n22424\n2334\n\n\nCCC\n444\n2137"
   },
   {
     "objectID": "posts/post-with-code/index.html",
     "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "title": "Testowy post z kodem",
     "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+    "text": "Pierwszy post jaki dodałem z kodem. Poniżej widać chunka.\n\n1 + 1\n\n[1] 2\n\n\nW tym poście dokonałęm testowej edycji 23.10.2023 roku. Godzina zmiany to 21:57."
   },
   {
     "objectID": "posts/welcome/index.html",

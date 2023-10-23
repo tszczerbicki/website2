@@ -1,5 +1,4 @@
 ---
-title: "testowyblogquarto"
 listing:
   contents: posts
   sort: "date desc"
