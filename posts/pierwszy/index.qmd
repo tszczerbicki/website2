@@ -1,6 +1,7 @@
 ---
 title: "Pierwszy właściwy wpis"
 author: "Tomasz Szczerbicki"
+description: "Krótki opis wpisu, który będzie wyświetlał się na stronie głównej. Należy pamiętać o stosowaniu takiego standardu."
 date: "2023-10-23"
 categories: [news, giełda, WIG20, PCO, JSW]
 ---
