@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Statystyki giełdowe",
     "section": "",
-    "text": "Pierwszy właściwy wpis\n\n\n\n\n\n\n\nnews\n\n\ngiełda\n\n\nWIG20\n\n\nPCO\n\n\nJSW\n\n\n\n\nKrótki opis wpisu, który będzie wyświetlał się na stronie głównej. Należy pamiętać o stosowaniu takiego standardu.\n\n\n\n\n\n\n23 paź 2023\n\n\nTomasz Szczerbicki\n\n\n\n\n\n\n  \n\n\n\n\nTestowy post z kodem\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\nwig20\n\n\nGPW\n\n\n\n\n\n\n\n\n\n\n\n22 paź 2023\n\n\nTomasz Szczerbicki\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\n19 paź 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nBrak pasujących"
+    "text": "Kapitalizacja spółek na GPW\n\n\n\n\n\n\n\nGPW\n\n\nWIG20\n\n\nmWIG40\n\n\nsWIG80\n\n\n\n\nPrzegląd spółek notowanych na GPW pod kątem kapitalizacji i przynależności do indeksów\n\n\n\n\n\n\n23 paź 2023\n\n\nTomasz Szczerbicki\n\n\n\n\n\n\n  \n\n\n\n\nPierwszy właściwy wpis\n\n\n\n\n\n\n\nnews\n\n\ngiełda\n\n\nWIG20\n\n\nPCO\n\n\nJSW\n\n\n\n\nKrótki opis wpisu, który będzie wyświetlał się na stronie głównej. Należy pamiętać o stosowaniu takiego standardu.\n\n\n\n\n\n\n23 paź 2023\n\n\nTomasz Szczerbicki\n\n\n\n\n\n\n  \n\n\n\n\nTestowy post z kodem\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\nwig20\n\n\nGPW\n\n\n\n\n\n\n\n\n\n\n\n22 paź 2023\n\n\nTomasz Szczerbicki\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\n19 paź 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nBrak pasujących"
   },
   {
     "objectID": "posts/pierwszy/index.html",
@@ -33,5 +33,19 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/gpw_wielkosci/gpw-wielkosci.html",
+    "href": "posts/gpw_wielkosci/gpw-wielkosci.html",
+    "title": "Kapitalizacja spółek na GPW",
+    "section": "",
+    "text": "Zgodnie z danymi prezentowanymi przez Giełdę Papierów Wartościowych, na głównym rynku notowanych jest ponad 400 podmiotów. Szczegółowe poznanie każdej ze spółek z uwagi na ich liczbę wydaje się niewykonalne, jednakże posiadanie ogólnej wiedzy na temat składowych indeksów stanowi przydatną wiedzę, chociażby w kontekście wstępnej selekcji spółek w jakie chcemy zainwestować. Niniejszy wpis posłuży więc poznaniu struktury GPW i jej indeksów, zarówno pod kątem działalności spółek, jak i wielkości wyrażonych kapitalizacją oraz wartością księgową.\nW analizie wykorzystane zostały dane opublikowane na stronie GPW.PL. Obejmują one informacje o przynależności każdej ze spółek do poszczególnych indeksów, reprezentowany przez nie sektor oraz dane finansowe, zgodne ze stanem na koniec 2022 roku - kapitalizacje rynkową (w mln PLN), wartość księgową (w mln PLN) oraz wskażniki Cena / Wartość księgowa i Cena / Zysk."
+  },
+  {
+    "objectID": "posts/gpw_wielkosci/gpw-wielkosci.html#najczęściej-występujące-branże-na-gpw",
+    "href": "posts/gpw_wielkosci/gpw-wielkosci.html#najczęściej-występujące-branże-na-gpw",
+    "title": "Kapitalizacja spółek na GPW",
+    "section": "Najczęściej występujące branże na GPW",
+    "text": "Najczęściej występujące branże na GPW\n\n\n\n\n\nindustry\nn\n\n\n\n\nGry\n22\n\n\nOprogramowanie\n19\n\n\nSprzedaż nieruchomości\n18\n\n\nDziałalność inwestycyjna\n17\n\n\nOdzież i obuwie\n15\n\n\nWynajem nieruchomości\n15\n\n\nBiotechnologia\n14\n\n\nUrządzenia mechaniczne\n14\n\n\nBanki komercyjne\n13\n\n\nMateriały budowlane\n13\n\n\n\n\n\nSpośród 415 spółek wskazywanych przez GPW jako obecnie notowane na głównym parkiecie, 22 reprezentują branżę gamingową. Wśród najpopularniejszych sektorów swoją mocną reprezentację posiada budownictwo - sprzedaż nieruchomości (18), wynajem nieruchomości (15) oraz materiały budolwane (13).\n\n\n\n\n\nindex\nindustry\nn\n\n\n\n\nwig20\nBanki komercyjne\n5\n\n\nwig20\nArtykuły codziennego użytku\n2\n\n\nwig20\nTelekomunikacja\n2\n\n\nmwig40\nGry\n4\n\n\nmwig40\nBanki komercyjne\n3\n\n\nmwig40\nEnergetyka\n3\n\n\nswig80\nOprogramowanie\n7\n\n\nswig80\nBiotechnologia\n5\n\n\nswig80\nMateriały budowlane\n5\n\n\nother\nDziałalność inwestycyjna\n16\n\n\nother\nSprzedaż nieruchomości\n15\n\n\nother\nGry\n14\n\n\nother\nWynajem nieruchomości\n14\n\n\n\n\n\nJeśli spojrzymy na poziom indeksów, w przypadku WIG20, najpopularniejszym sektorem są banki komercyjne (5 z 13 na całym GPW), mwig40 najpopularniejsi są producenci gier (4 spółki), swig80 to natomiast producenci oprogramowania (7 spółek). W przypadku spółek niezaklasyfikowanych do żadnych z wymienionych trzech indeksu, najczęściej występują podmioty podejmujące szeroko pojętą działalność inwestycyjną."
   }
 ]

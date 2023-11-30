@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tomasz Szczerbicki">
+<meta name="dcterms.date" content="2023-10-23">
+<meta name="description" content="Przegląd spółek notowanych na GPW pod kątem kapitalizacji i przynależności do indeksów">
+
+<title>Statystyki giełdowe - Kapitalizacja spółek na GPW</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Statystyki giełdowe</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">O blogu</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/tszczerbicki/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/Shcherbytsky" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Kapitalizacja spółek na GPW</h1>
+                  <div>
+        <div class="description">
+          Przegląd spółek notowanych na GPW pod kątem kapitalizacji i przynależności do indeksów
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">GPW</div>
+                <div class="quarto-category">WIG20</div>
+                <div class="quarto-category">mWIG40</div>
+                <div class="quarto-category">sWIG80</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tomasz Szczerbicki </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 23, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Zgodnie z danymi prezentowanymi przez Giełdę Papierów Wartościowych, na głównym rynku notowanych jest ponad 400 podmiotów. Szczegółowe poznanie każdej ze spółek z uwagi na ich liczbę wydaje się niewykonalne, jednakże posiadanie ogólnej wiedzy na temat składowych indeksów stanowi przydatną wiedzę, chociażby w kontekście wstępnej selekcji spółek w jakie chcemy zainwestować. Niniejszy wpis posłuży więc poznaniu struktury GPW i jej indeksów, zarówno pod kątem działalności spółek, jak i wielkości wyrażonych kapitalizacją oraz wartością księgową.</p>
+<p>W analizie wykorzystane zostały dane opublikowane na stronie <a href="https://www.gpw.pl/">GPW.PL</a>. Obejmują one informacje o przynależności każdej ze spółek do poszczególnych indeksów, reprezentowany przez nie sektor oraz dane finansowe, zgodne ze stanem na koniec 2022 roku - kapitalizacje rynkową (w mln PLN), wartość księgową (w mln PLN) oraz wskażniki Cena / Wartość księgowa i Cena / Zysk.</p>
+<section id="ogólne-spojrzenie-na-całe-gpw" class="level1">
+<h1>Ogólne spojrzenie na całe GPW</h1>
+<p>Pod kątem kapitalizacji, wyróżniają się cztery największe spółki Santander i Unicredit z sektora bankowego (kolejno 222 i 120 mld PLN kapitalizacji), przedstawiciel sektora energetycznego Cez (kapitalizacja na poziomie 80 mld PLN) oraz PKN Orlen (75 mld PLN kapitalizacji). Kolejna pod tym kątem spółka, PKO BP to “jedynie” 38 mld PLN kapitalizacji. Pierwszy z poniższych histogramów powstał już po wykluczeniu wartości odstających w postaci czterch największych, wymienionych wyżej spółek:</p>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<p><img src="gpw-wielkosci_files/figure-html/histogram - rozkład kapitalizacji na GPW-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Pierwszy z histogramów, obejmujący spółki o kapitalizacji od 0.5 mln PLN do 38 mld PLN, wskazuje że rozpiętość w tym aspekcie na polskiej giełdzie jest znacząca. Jednocześnie widać, że największa koncentracja spółek występuje po lewej stronie wykresu. Mamy zatem około 20 spółek bardzo dużych w skali krajowej - ich kapitalizacja przekracza 10 miliardów złotych, a po drugiej stronie mamy sporą grupę (280) spółek małych i średnich o kapitalizacji do 500 mln PLN, przy czym rozkład koncentruje się po lewej stronie. Oczywiście należy pamiętać, że aptekarska precyzja w tej analizie nie do końca ma sens, bowiem kapitalizacja zmienia się z każdą sesją giełdową.</p>
+<p>Z uwagi na to jak bardzo ponad resztę wybija się grupa spółek o kapitalizacji do 50 milionów PLN, sprawdźmy dokładniej te podmioty.</p>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<p><img src="gpw-wielkosci_files/figure-html/histogram - rozkład kapitalizacji spółek małych na GPW-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="struktura-wielkościowa-i-brażowa-indeksów-wig20-mwig40-i-swig80" class="level1">
+<h1>Struktura wielkościowa i brażowa indeksów WIG20, mWIG40 i sWIG80</h1>
+<p>O wielkości spółki może świadczyć sam fakt przynależności do jednego z indeksów: WIG20 (spółki duże), mWIG40 (spółki średnie), sWIG80 (spółki małe). Sprawdźmy zatem o jakich wartościach mowa w kontekście tychże indeksów, a także jakie branże są reprezentowane przez przedstawicieli poszczególnych.</p>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<p><img src="gpw-wielkosci_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">index</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">Q1</th>
+<th style="text-align: right;">Q2</th>
+<th style="text-align: right;">Q3</th>
+<th style="text-align: right;">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">wig20</td>
+<td style="text-align: right;">4410.12</td>
+<td style="text-align: right;">8228.925</td>
+<td style="text-align: right;">17596.69</td>
+<td style="text-align: right;">26520.938</td>
+<td style="text-align: right;">74578.92</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mwig40</td>
+<td style="text-align: right;">420.86</td>
+<td style="text-align: right;">1095.003</td>
+<td style="text-align: right;">1794.75</td>
+<td style="text-align: right;">3012.887</td>
+<td style="text-align: right;">21440.48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">swig80</td>
+<td style="text-align: right;">122.02</td>
+<td style="text-align: right;">338.005</td>
+<td style="text-align: right;">493.89</td>
+<td style="text-align: right;">752.545</td>
+<td style="text-align: right;">8265.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">other</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">24.570</td>
+<td style="text-align: right;">65.06</td>
+<td style="text-align: right;">175.000</td>
+<td style="text-align: right;">221686.10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Zgodnie z przewidywaniami, każdy kolejny indeks reprezentowany jest przez mniejsze spółki. W przypadku WIG20 mediana kapitalizacji to 17 596 mln PLN, mwig40 1 794 mln PLN, za swig80 notuje Q2 na poziomie 493 mln złotych. Różnice w medianach wyglądają na duże, natomiast warto pamiętać, że możemy mieć do czynienia z przypadkami, gdzie spółka z indeksu “dla mniejszych” spółek będzie miała kapitalizację większą od niektórych spółek z indeksu wyżej. Przykładem jest para Kęty (KTY) z WIG20 o kapitalizacji 4 410 mln PLN oraz ING Bank Śląski (ING) z mWIG40 o kapitalizacji 21 440 mln PLN. Warto także zauważyć, że z każdą kolejną grupą z wykresu pudełkowego, wzrasta liczba wartości odstających (oznaczone kropkami) - obserwacji różnych na tyle, że wykraczają poza rozstęp ćwiartkowy będący liniami pionowymi wyprowadzanymi od góry i dołu pudełka (długość linii zalezy od różnicy pomiędzy Q3, a Q2).</p>
+<p>Dotychczas najwięcej uwagi poświęcane było największym spółkom, które swoją kapitalizacją znacząco wyróżniały się ponad resztę obserwacji. Tabela z miarami pozycyjnymi wskazuje natomiast inną ciekawą wartość - 0.50 mln PLN jako najmniejszą wartość wśród spółek notowanych na GPW. Jest to kapitalizacja spółki Fast Finance S.A. Warto zaznaczyć, że zgodnie ze stanem na końcówkę października 2023, kapitalizacja podmiotu wzrosła do 1.26 mln PLN, co wynika z rajdu kursu w trakcie 2023 o ponad 90%.</p>
+<section id="najczęściej-występujące-branże-na-gpw" class="level2">
+<h2 class="anchored" data-anchor-id="najczęściej-występujące-branże-na-gpw">Najczęściej występujące branże na GPW</h2>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">industry</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Gry</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oprogramowanie</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sprzedaż nieruchomości</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Działalność inwestycyjna</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Odzież i obuwie</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wynajem nieruchomości</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Biotechnologia</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Urządzenia mechaniczne</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Banki komercyjne</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Materiały budowlane</td>
+<td style="text-align: right;">13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Spośród 415 spółek wskazywanych przez GPW jako obecnie notowane na głównym parkiecie, 22 reprezentują branżę gamingową. Wśród najpopularniejszych sektorów swoją mocną reprezentację posiada budownictwo - sprzedaż nieruchomości (18), wynajem nieruchomości (15) oraz materiały budolwane (13).</p>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">index</th>
+<th style="text-align: left;">industry</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">wig20</td>
+<td style="text-align: left;">Banki komercyjne</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wig20</td>
+<td style="text-align: left;">Artykuły codziennego użytku</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wig20</td>
+<td style="text-align: left;">Telekomunikacja</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mwig40</td>
+<td style="text-align: left;">Gry</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mwig40</td>
+<td style="text-align: left;">Banki komercyjne</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mwig40</td>
+<td style="text-align: left;">Energetyka</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">swig80</td>
+<td style="text-align: left;">Oprogramowanie</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">swig80</td>
+<td style="text-align: left;">Biotechnologia</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">swig80</td>
+<td style="text-align: left;">Materiały budowlane</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">other</td>
+<td style="text-align: left;">Działalność inwestycyjna</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">other</td>
+<td style="text-align: left;">Sprzedaż nieruchomości</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">other</td>
+<td style="text-align: left;">Gry</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">other</td>
+<td style="text-align: left;">Wynajem nieruchomości</td>
+<td style="text-align: right;">14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Jeśli spojrzymy na poziom indeksów, w przypadku WIG20, najpopularniejszym sektorem są banki komercyjne (5 z 13 na całym GPW), mwig40 najpopularniejsi są producenci gier (4 spółki), swig80 to natomiast producenci oprogramowania (7 spółek). W przypadku spółek niezaklasyfikowanych do żadnych z wymienionych trzech indeksu, najczęściej występują podmioty podejmujące szeroko pojętą działalność inwestycyjną.</p>
+</section>
+</section>
+<section id="podsumowanie" class="level1">
+<h1>Podsumowanie</h1>
+<p>Na Giełdzie Papierów Wartościowych swój segment spółek powinien znaleźć niemal każdy inwestor. Z jednej strony, na głównym parkiecie nowotowane są niewielkie podmioty o kapitalizacji oscylujacej w kwocie miliona złotych. Z drugiej zaś, nabyć można akcje ogromnych koncernów z branży paliwowej, czy bankowości. Słowo ogromne zostało tutaj użyte raczej w kontekście lokalnym, wszak obecne kapitalizacje chociażby Amazona (1.32 biliona USD), czy Apple (2.63 biliona USD) ciężko zestawiać nawet z polskimi blue-chipami.</p>
+<p>Jeśli chodzi natomiast o dostępność przedstawicieli poszczególnych branż, tutaj również wybór zdaje się być szeroki. Na stronie GPW wyróżnione zostały 82 branże, reprezentowane przez spółki głównego parkietu. Niewątpliwie każdy inwestor powinien mieć na uwadze jak spółki działające w poszczególnych obszarach wpływają na ogólny obraz rynku. Mowa tutaj chociażby o wpływie banków komercyjnych na wyniki wig20, czy chociażby spółki biotechnologiczne na swig80.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
