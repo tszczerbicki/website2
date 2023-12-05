@@ -1,0 +1,21 @@
+---
+title: "Pierwszy właściwy wpis"
+author: "Tomasz Szczerbicki"
+description: "Krótki opis wpisu, który będzie wyświetlał się na stronie głównej. Należy pamiętać o stosowaniu takiego standardu."
+date: "2023-10-23"
+categories: [news, giełda, WIG20, PCO, JSW]
+---
+
+Jest to pierwszy wpis tematyczny. Od tego momentu zaczynamy pracę ze statystykami. Poniżej jest testowe zdjęcie.
+
+![](thumbnail.jpg)
+
+Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+
+| Ticker | Close | Vol  |
+|--------|-------|------|
+| JSW    | 2     | 223  |
+| PCO    | 22424 | 2334 |
+| CCC    | 444   | 2137 |
+
+: Tabelka

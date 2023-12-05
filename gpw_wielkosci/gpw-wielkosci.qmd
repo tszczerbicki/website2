@@ -1,0 +1,214 @@
+---
+title: "Kapitalizacja spółek na GPW"
+author: "Tomasz Szczerbicki"
+description: "Przegląd spółek notowanych na GPW pod kątem kapitalizacji i przynależności do indeksów"
+date: "2023-10-23"
+categories: [GPW, WIG20, mWIG40, sWIG80]
+image: "market_cap.jpg"
+---
+
+```{r wczytanie pakietów i danych, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(tidyverse)
+library(readr)
+library(stringr)
+library(rvest)
+library(ggplot2)
+library(ggforce)
+library(viridis)
+library(forcats)
+
+main <- read_csv('tickers.csv')
+values <- read_csv('gpw_values.csv')
+categories <- read_csv('categories.csv')
+```
+
+```{r list of companies, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+companies <- main %>% mutate(
+  company = str_replace_all(str_extract(name,'^.*\\('),c('SPÓŁKA AKCYJNA'='S.A.','PUBLIC LIMITED' = 'LTD','\\('='')),
+  ticker = str_sub(str_extract(name,'\\(...\\)'),2,4),
+    isin = str_sub(url,-12,-1),
+  industry = str_to_sentence(str_replace(str_replace_all(str_extract(name,'\\|.*$'),c('\\|.*\\|'='','\\|'='')),' ','')),
+  is_wig20 = str_detect(name,'WIG20,'),
+  is_mwig40 = str_detect(name,'mWIG40,'),
+  is_swig80 = str_detect(name,'sWIG80,'),
+  is_wig_div = str_detect(name,'WIGdiv,'),
+  is_wig_esg = str_detect(name,'WIG-ESG,'),
+  is_wig_banki = str_detect(name,'WIG-banki,'),
+  is_wig_budownictwo = str_detect(name,'WIG-budownictwo,'),
+  is_wig_energia = str_detect(name,'WIG-energia,'),
+  is_wig_gry = str_detect(name,'WIG-gry,'),
+  is_wig_nieruchomosci = str_detect(name,'WIG-nieruchomości,'),
+  is_wig_odziez = str_detect(name,'WIG-odzież,'),
+  is_wig_spozywczy = str_detect(name,'WIG-spożywczy,'),
+  is_wig_informatyka = str_detect(name,'WIG-informatyka,'), 
+  index = ifelse(is_wig20 == TRUE, 'wig20',ifelse(is_mwig40 == TRUE,'mwig40',ifelse(is_swig80 == TRUE, 'swig80','other')))) %>% 
+  unique() %>% 
+  left_join(values, by = 'isin') %>%
+  inner_join(categories, by = c('industry' = 'Lowest_lvl')) %>% 
+  select(2:6, 27, 29, 7:24)
+
+companies2 <- companies %>% 
+  inner_join(categories, by = c('industry' = 'Lowest_lvl'))
+```
+
+Zgodnie z danymi prezentowanymi przez Giełdę Papierów Wartościowych, na głównym rynku notowanych jest ponad 400 podmiotów. Szczegółowe poznanie każdej ze spółek z uwagi na ich liczbę wydaje się niewykonalne, jednakże posiadanie ogólnej wiedzy na temat składowych indeksów stanowi przydatną wiedzę, chociażby w kontekście wstępnej selekcji spółek w jakie chcemy zainwestować. Niniejszy wpis posłuży więc poznaniu struktury GPW i jej indeksów, zarówno pod kątem działalności spółek, jak i wielkości wyrażonych kapitalizacją oraz wartością księgową.
+
+W analizie wykorzystane zostały dane opublikowane na stronie [GPW.PL](https://www.gpw.pl/). Obejmują one informacje o przynależności każdej ze spółek do poszczególnych indeksów, reprezentowany przez nie sektor oraz dane finansowe, zgodne ze stanem na koniec 2022 roku - kapitalizacje rynkową (w mln PLN), wartość księgową (w mln PLN) oraz wskażniki Cena / Wartość księgowa i Cena / Zysk.
+
+# Ogólne spojrzenie na całe GPW
+
+Pod kątem kapitalizacji, wyróżniają się cztery największe spółki Santander i Unicredit z sektora bankowego (kolejno 222 i 120 mld PLN kapitalizacji), przedstawiciel sektora energetycznego Cez (kapitalizacja na poziomie 80 mld PLN) oraz PKN Orlen (75 mld PLN kapitalizacji). Kolejna pod tym kątem spółka, PKO BP to "jedynie" 38 mld PLN kapitalizacji. Pierwszy z poniższych histogramów powstał już po wykluczeniu wartości odstających w postaci czterch największych, wymienionych wyżej spółek:
+
+```{r histogram - rozkład kapitalizacji na GPW, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+companies %>% 
+  filter(!ticker %in% c('SAN','UCG','CEZ','PKN')) %>% 
+  ggplot(aes(x = market_cap, fill = L1_name)) +
+    geom_histogram(binwidth = 20, boundary = 0) +
+  theme_minimal() +
+  facet_zoom(xlim = c(0,500)) +
+  scale_x_continuous('Kapitalizacja (w mln PLN)') +
+  scale_y_continuous('Liczba spółek') +
+  ggtitle('Rozkład spółek na GPW według kapitalizacji') +
+  scale_fill_manual(values = c('#f94144','#eab69f','#f8961e','#f9c74f','#90be6d','#43aa8b','#4d9de0','#003391','#38007b'), name = 'Sektor (poziom 1)')
+```
+
+Pierwszy z histogramów, obejmujący spółki o kapitalizacji od 0.5 mln PLN do 38 mld PLN, wskazuje że rozpiętość w tym aspekcie na polskiej giełdzie jest znacząca i wykres jest trudny do rozczytania, mimo wykluczenia z niego najwiekszych podmiotów. Jednocześnie widać, że największa koncentracja spółek występuje po lewej stronie wykresu. Mamy zatem około 20 spółek bardzo dużych w skali krajowej - ich kapitalizacja przekracza 10 miliardów złotych, a po drugiej stronie mamy sporą grupę (280) spółek małych i średnich o kapitalizacji do 500 mln PLN, przy czym rozkład koncentruje się po lewej stronie. Oczywiście należy pamiętać, że aptekarska precyzja w tej analizie nie do końca ma sens, bowiem kapitalizacja zmienia się z każdą sesją giełdową.
+
+Z uwagi na to jak bardzo ponad resztę wybija się grupa spółek o kapitalizacji do 50 milionów PLN, sprawdźmy dokładniej te podmioty.
+
+```{r histogram - rozkład kapitalizacji spółek małych na GPW, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+companies %>% 
+  filter(market_cap < 50 & market_cap > 1) %>% 
+  ggplot(aes(x = market_cap)) +
+    geom_histogram(aes(fill = L1_name), binwidth = 10, boundary = 0) +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_x_continuous('Kapitalizacja (w mln PLN)') +
+  scale_y_continuous('Liczba spółek') +
+  scale_color_discrete(name = 'Branża') +
+  ggtitle('Rozkład spółek na GPW według kapitalizacji (spółki małe do 100 mln PLN') +
+  scale_fill_manual(values = c('#f94144','#eab69f','#f8961e','#f9c74f','#90be6d','#43aa8b','#4d9de0','#003391','#38007b'), name = 'Sektor (poziom 1)')
+```
+
+Podsumowując, najmniejsze spółki, o kapitalizacji do 50 milionów złotych, to przede wszystkim liczna reprezentacja spółek z sektora produkcji przemysłowej (25) oraz finansów (31). W zestawieniu pojawiają sę także spółki działające w obszarze technologii, dóbr konsumpcyjnych, handlu i usług. Pojawią się także pojedynczy reprezentanci z branży chemicznej, surowcowej, paliwowej oraz energetycznej.Z uwagi, że wymienione na początku dwa sektory dość mocno odstają liczebnością od pozostałych, sprawdźmy jak wygląda ich struktura biorąc pod uwage drugi poziom klasyfikacji branżowej:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+companies %>% 
+  filter(market_cap < 50 & market_cap > 1 & L1_name %in% c('FINANSE','PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA')) %>% 
+  ggplot(aes(y = fct_rev(fct_infreq(L2_name)))) +
+  geom_bar(aes(fill = L1_name)) +
+  facet_wrap(~ L1_name, nrow =2, scales = 'free_y' ) +
+  scale_x_continuous(breaks = c(2,4,6,8,10,12,14)) +
+  labs(title = 'Struktura spółek małych z sektorów Finanse oraz Produkcja przemysłowa i budowlano-montażowa',
+       x = 'Liczba spółek', y = '', caption = 'tszczerbicki' ) +
+  theme_minimal() +
+  theme(panel.grid.major = element_blank(),
+        plot.title = element_text(hjust = 1, size =10 ),
+        legend.position = 'none') +
+  scale_fill_viridis_d(option = 'E')
+  
+```
+
+Wśród małych spółek z obszaru finansów, zdecydowanie najmocniej reprezentowani są przedstawiciele nieruchomości oraz ogólnie pojętej działalności inwestycyjnej. Jeśli natomiast o produkcji przemysłowej i budowlano-montażowej mowa, small-capy są najmocniej reprezentowane przez spółki z obszaru budownictwa oraz przemysłu elektromaszynowego.
+
+# Struktura wielkościowa i brażowa indeksów WIG20, mWIG40 i sWIG80
+
+O wielkości spółki może świadczyć sam fakt przynależności do jednego z indeksów: WIG20 (spółki duże), mWIG40 (spółki średnie), sWIG80 (spółki małe). Sprawdźmy zatem o jakich wartościach mowa w kontekście tychże indeksów, a także jakie branże są reprezentowane przez przedstawicieli poszczególnych.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+companies %>% 
+  filter(is.na(market_cap) == FALSE &
+   !ticker %in% c()) %>% 
+ggplot(aes(y=market_cap)) +
+  geom_boxplot( fill = 'cornflowerblue') +
+  #facet_wrap(~ index, scales = 'free', nrow = 1) +
+  facet_wrap(~ factor(index, levels = c('wig20','mwig40','swig80','other')), scales = 'free', nrow = 1) +
+  theme_minimal() +
+  theme(axis.text.x=element_blank(),
+        panel.grid.major = element_blank()) +
+  scale_y_continuous('Kapitalizacja (w mln PLN)')
+
+  
+```
+
+```{r Kapitalizacja w indeksach - struktura, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+companies %>% 
+  filter(is.na(market_cap) == FALSE) %>% 
+  select(index, market_cap) %>% 
+  group_by(index) %>% 
+  summarise(
+    min = quantile(market_cap, probs = 0),
+    Q1 = quantile(market_cap, probs = 0.25),
+    Q2 = quantile(market_cap, probs = 0.5),
+    Q3 = quantile(market_cap, probs = 0.75),
+    max = quantile(market_cap, probs = 1),
+    ) %>% 
+  arrange(factor(index, levels = c('wig20','mwig40','swig80','other'))) %>% 
+  knitr::kable()
+
+```
+
+Zgodnie z przewidywaniami, każdy kolejny indeks reprezentowany jest przez mniejsze spółki. W przypadku WIG20 mediana kapitalizacji to 17 596 mln PLN, mwig40 1 794 mln PLN, za swig80 notuje Q2 na poziomie 493 mln złotych. Różnice w medianach wyglądają na duże, natomiast warto pamiętać, że możemy mieć do czynienia z przypadkami, gdzie spółka z indeksu "dla mniejszych" spółek będzie miała kapitalizację większą od niektórych spółek z indeksu wyżej. Przykładem jest para Kęty (KTY) z WIG20 o kapitalizacji 4 410 mln PLN oraz ING Bank Śląski (ING) z mWIG40 o kapitalizacji 21 440 mln PLN. Warto także zauważyć, że z każdą kolejną grupą z wykresu pudełkowego, wzrasta liczba wartości odstających (oznaczone kropkami) - obserwacji różnych na tyle, że wykraczają poza rozstęp ćwiartkowy będący liniami pionowymi wyprowadzanymi od góry i dołu pudełka (długość linii zalezy od różnicy pomiędzy Q3, a Q2).
+
+Dotychczas najwięcej uwagi poświęcane było największym spółkom, które swoją kapitalizacją znacząco wyróżniały się ponad resztę obserwacji. Tabela z miarami pozycyjnymi wskazuje natomiast inną ciekawą wartość - 0.50 mln PLN jako najmniejszą wartość wśród spółek notowanych na GPW. Jest to kapitalizacja spółki Fast Finance S.A. Warto zaznaczyć, że zgodnie ze stanem na końcówkę października 2023, kapitalizacja podmiotu wzrosła do 1.26 mln PLN, co wynika z rajdu kursu w trakcie 2023 roku o ponad 90%.
+
+## Najczęściej występujące branże na GPW
+
+```{r Najpopularniejsze branże na GPW, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+companies %>% 
+  group_by(L1_name) %>% 
+  summarise(n = n()) %>% 
+  arrange(desc(n)) %>% 
+  knitr::kable() 
+```
+
+Spośród 415 spółek wskazywanych przez GPW jako obecnie notowane na głównym parkiecie, aż 92 to podmioty zajmujące się produkcją przemysłową / budowlano-montażową, a 88 działa w obszarze finansów. Te dwa sektory zostały już wspomniane jako niezwykle istotne przy okazji small-capów. Biorąc pod uwagę najbardziej ogólny podział GPW na sektory. W takim ujęciu najsłabiej wypadaja grupa spółek z sektora paliwowo-energetycznego. Tutaj do czynienia mamy z mniejszą liczbą spółek, lecz o stosunkowo dużej kapitalizacji
+
+```{r Najpopularniejsze branże na GPW L2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+companies %>% 
+  group_by(L2_name) %>% 
+  summarise(n = n()) %>% 
+  top_n(n = 10, wt = n) %>% 
+  arrange(desc(n)) %>% 
+  knitr::kable()
+```
+
+Spoglądając na najczęściej reprezentowane sektory biorąc pod uwagę drugi poziom klasyfikacji przyjęty przez GPW, dochodzimy do wniosku że na polskim parkiecie sporo do powiedzenia mają przedstawiciele z obszaru budownictwa i nieruchomości widoczne na pierwszych dwóch miejscach tabeli. Z jednej strony mamy do czynienia z produkcją budowlaną, a z drugiej strony z obrotem nieruchomościami. W takim ujęciu swoją siłę ujawnia także sektor IT - widzimy bowiem 33 spółki przypisane do kategorii "Informatyka" oraz 22 sklasyfikowane jako spółki gamingowe.
+
+## Branże a najważniejsze indeksy giełdowe
+
+Mając już ogólny obraz tego czym zajmują się przeważnie spółki na GPW, nasza uwaga może skierować się na istotne indeksy giełdowe, szczególnie iż regularnie są punktem odniesienia w dyskusjach na temat sytuacji ekonomicznej w Polsce. A zatem czym zajmują się spółki, które wpływają na wizerunek gospodarki naszego kraju?
+
+```{r Najpopularniejsze branże według indeksów2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+companies %>% 
+  group_by(index, L1_name) %>% 
+  summarise(liczba = n()) %>% 
+  pivot_wider(names_from = index, values_from = liczba, values_fill = 0) %>% 
+  rename(Sektor_L1 = L1_name) %>% 
+  select(Sektor_L1, wig20, mwig40, swig80, other) %>% 
+  knitr::kable() 
+```
+
+Jeśli spojrzymy na główne indeksy z poziomu najbardziej ogólnego podziału sektorowego, w przypadku WIG20, najpopularniejszym sektorem są spółki finansowe (7 z 20), a w dalszej kolejności spółki handlowe (4 z 20). Te same dwa sektory, lecz w odwrotnej kolejności, dominują indeks mwig40. Indeks 80 spółek małych to natomiast w ponad 25% spółki przemysłowe / budowlano-montażowe, a w dalszej kolejności technologiczne, zajmujące się ochroną zdrowia oraz handlowe.
+
+```{r Najpopularniejsze branże według indeksów, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+companies %>% 
+  group_by(index, L2_name) %>% 
+  summarise(liczba_społek = n()) %>% 
+  top_n(n = 3, wt = liczba_społek) %>% 
+  arrange(factor(index, levels = c('wig20','mwig40','swig80','other')),desc(liczba_społek)) %>% 
+  rename(Sektor_L2 = L2_name) %>% 
+  knitr::kable() 
+```
+
+Więcej informacji dostarcza nam sprawdzenie najczęściej występujących sektorów poziomu drugiego. W takim ujęciu, wig20 w 25% składa się z banków, w mwig40 najczęściej występują spółki gamingowe (4 z 40 - warto zwrócić na większe rozdrobnienie względem choćby wig20). Z kolei swig80 i pozostałe spółki to sytuacja omówiona przy okazji spojrzenia na całe GPW - dominacja spółek z obszaru Budownictwa, Nieruchomości, Informatyki.
+
+W tym miejscu do powyższych rozważań warto dodać adnotację, że liczebność danego sektora nie do końca będzie odzwierciedlać siły działające na wartość całych indeksów. Każda ze spółek ma bowiem okresowo ustaloną wagę i tak przykładowo, zgodnie ze stanem na październik 2023 roku, PKN Orlen posiada 14,40% udziału w indeksie wig20. Tego typu informacji można z powodzeniem szukać na [gpwbenchmark.pl](gpwbenchmark.pl).
+
+# Podsumowanie
+
+Na Giełdzie Papierów Wartościowych swój segment spółek powinien znaleźć niemal każdy inwestor. Z jednej strony, na głównym parkiecie nowotowane są niewielkie podmioty o kapitalizacji oscylujacej w kwocie miliona złotych. Z drugiej zaś, nabyć można akcje ogromnych koncernów z branży paliwowej, czy bankowości. Słowo ogromne zostało tutaj użyte raczej w kontekście lokalnym, wszak obecne kapitalizacje chociażby Amazona (1.32 biliona USD), czy Apple (2.63 biliona USD) ciężko zestawiać nawet z polskimi blue-chipami.
+
+Jeśli chodzi natomiast o dostępność przedstawicieli poszczególnych branż, tutaj również wybór zdaje się być szeroki. Na stronie GPW wyróżnione zostały 82 branże, reprezentowane przez spółki głównego parkietu. Niewątpliwie każdy inwestor powinien mieć na uwadze jak spółki działające w poszczególnych obszarach wpływają na ogólny obraz rynku. Mowa tutaj chociażby o wpływie banków komercyjnych na wyniki wig20, czy spółki produkcyjno-budowlane na swig80.
