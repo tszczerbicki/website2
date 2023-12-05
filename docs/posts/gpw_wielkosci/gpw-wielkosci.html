@@ -165,20 +165,27 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="gpw-wielkosci_files/figure-html/histogram - rozkład kapitalizacji na GPW-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Pierwszy z histogramów, obejmujący spółki o kapitalizacji od 0.5 mln PLN do 38 mld PLN, wskazuje że rozpiętość w tym aspekcie na polskiej giełdzie jest znacząca. Jednocześnie widać, że największa koncentracja spółek występuje po lewej stronie wykresu. Mamy zatem około 20 spółek bardzo dużych w skali krajowej - ich kapitalizacja przekracza 10 miliardów złotych, a po drugiej stronie mamy sporą grupę (280) spółek małych i średnich o kapitalizacji do 500 mln PLN, przy czym rozkład koncentruje się po lewej stronie. Oczywiście należy pamiętać, że aptekarska precyzja w tej analizie nie do końca ma sens, bowiem kapitalizacja zmienia się z każdą sesją giełdową.</p>
+<p>Pierwszy z histogramów, obejmujący spółki o kapitalizacji od 0.5 mln PLN do 38 mld PLN, wskazuje że rozpiętość w tym aspekcie na polskiej giełdzie jest znacząca i wykres jest trudny do rozczytania, mimo wykluczenia z niego najwiekszych podmiotów. Jednocześnie widać, że największa koncentracja spółek występuje po lewej stronie wykresu. Mamy zatem około 20 spółek bardzo dużych w skali krajowej - ich kapitalizacja przekracza 10 miliardów złotych, a po drugiej stronie mamy sporą grupę (280) spółek małych i średnich o kapitalizacji do 500 mln PLN, przy czym rozkład koncentruje się po lewej stronie. Oczywiście należy pamiętać, że aptekarska precyzja w tej analizie nie do końca ma sens, bowiem kapitalizacja zmienia się z każdą sesją giełdową.</p>
 <p>Z uwagi na to jak bardzo ponad resztę wybija się grupa spółek o kapitalizacji do 50 milionów PLN, sprawdźmy dokładniej te podmioty.</p>
 <div class="cell" data-paged.print="false">
 <div class="cell-output-display">
 <p><img src="gpw-wielkosci_files/figure-html/histogram - rozkład kapitalizacji spółek małych na GPW-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Podsumowując, najmniejsze spółki, o kapitalizacji do 50 milionów złotych, to przede wszystkim liczna reprezentacja spółek z sektora produkcji przemysłowej (25) oraz finansów (31). W zestawieniu pojawiają sę także spółki działające w obszarze technologii, dóbr konsumpcyjnych, handlu i usług. Pojawią się także pojedynczy reprezentanci z branży chemicznej, surowcowej, paliwowej oraz energetycznej.Z uwagi, że wymienione na początku dwa sektory dość mocno odstają liczebnością od pozostałych, sprawdźmy jak wygląda ich struktura biorąc pod uwage drugi poziom klasyfikacji branżowej:</p>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<p><img src="gpw-wielkosci_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Wśród małych spółek z obszaru finansów, zdecydowanie najmocniej reprezentowani są przedstawiciele nieruchomości oraz ogólnie pojętej działalności inwestycyjnej. Jeśli natomiast o produkcji przemysłowej i budowlano-montażowej mowa, small-capy są najmocniej reprezentowane przez spółki z obszaru budownictwa oraz przemysłu elektromaszynowego.</p>
 </section>
 <section id="struktura-wielkościowa-i-brażowa-indeksów-wig20-mwig40-i-swig80" class="level1">
 <h1>Struktura wielkościowa i brażowa indeksów WIG20, mWIG40 i sWIG80</h1>
 <p>O wielkości spółki może świadczyć sam fakt przynależności do jednego z indeksów: WIG20 (spółki duże), mWIG40 (spółki średnie), sWIG80 (spółki małe). Sprawdźmy zatem o jakich wartościach mowa w kontekście tychże indeksów, a także jakie branże są reprezentowane przez przedstawicieli poszczególnych.</p>
 <div class="cell" data-paged.print="false">
 <div class="cell-output-display">
-<p><img src="gpw-wielkosci_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="gpw-wielkosci_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell" data-paged.print="false">
@@ -232,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Zgodnie z przewidywaniami, każdy kolejny indeks reprezentowany jest przez mniejsze spółki. W przypadku WIG20 mediana kapitalizacji to 17 596 mln PLN, mwig40 1 794 mln PLN, za swig80 notuje Q2 na poziomie 493 mln złotych. Różnice w medianach wyglądają na duże, natomiast warto pamiętać, że możemy mieć do czynienia z przypadkami, gdzie spółka z indeksu “dla mniejszych” spółek będzie miała kapitalizację większą od niektórych spółek z indeksu wyżej. Przykładem jest para Kęty (KTY) z WIG20 o kapitalizacji 4 410 mln PLN oraz ING Bank Śląski (ING) z mWIG40 o kapitalizacji 21 440 mln PLN. Warto także zauważyć, że z każdą kolejną grupą z wykresu pudełkowego, wzrasta liczba wartości odstających (oznaczone kropkami) - obserwacji różnych na tyle, że wykraczają poza rozstęp ćwiartkowy będący liniami pionowymi wyprowadzanymi od góry i dołu pudełka (długość linii zalezy od różnicy pomiędzy Q3, a Q2).</p>
-<p>Dotychczas najwięcej uwagi poświęcane było największym spółkom, które swoją kapitalizacją znacząco wyróżniały się ponad resztę obserwacji. Tabela z miarami pozycyjnymi wskazuje natomiast inną ciekawą wartość - 0.50 mln PLN jako najmniejszą wartość wśród spółek notowanych na GPW. Jest to kapitalizacja spółki Fast Finance S.A. Warto zaznaczyć, że zgodnie ze stanem na końcówkę października 2023, kapitalizacja podmiotu wzrosła do 1.26 mln PLN, co wynika z rajdu kursu w trakcie 2023 o ponad 90%.</p>
+<p>Dotychczas najwięcej uwagi poświęcane było największym spółkom, które swoją kapitalizacją znacząco wyróżniały się ponad resztę obserwacji. Tabela z miarami pozycyjnymi wskazuje natomiast inną ciekawą wartość - 0.50 mln PLN jako najmniejszą wartość wśród spółek notowanych na GPW. Jest to kapitalizacja spółki Fast Finance S.A. Warto zaznaczyć, że zgodnie ze stanem na końcówkę października 2023, kapitalizacja podmiotu wzrosła do 1.26 mln PLN, co wynika z rajdu kursu w trakcie 2023 roku o ponad 90%.</p>
 <section id="najczęściej-występujące-branże-na-gpw" class="level2">
 <h2 class="anchored" data-anchor-id="najczęściej-występujące-branże-na-gpw">Najczęściej występujące branże na GPW</h2>
 <div class="cell" data-paged.print="false">
@@ -240,143 +247,276 @@ ul.task-list li input[type="checkbox"] {
 <table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">industry</th>
+<th style="text-align: left;">L1_name</th>
 <th style="text-align: right;">n</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA</td>
+<td style="text-align: right;">92</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FINANSE</td>
+<td style="text-align: right;">88</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HANDEL I USŁUGI</td>
+<td style="text-align: right;">63</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DOBRA KONSUMPCYJNE</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TECHNOLOGIE</td>
+<td style="text-align: right;">41</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OCHRONA ZDROWIA</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CHEMIA I SUROWCE</td>
+<td style="text-align: right;">29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PALIWA I ENERGIA</td>
+<td style="text-align: right;">22</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Spośród 415 spółek wskazywanych przez GPW jako obecnie notowane na głównym parkiecie, aż 92 to podmioty zajmujące się produkcją przemysłową / budowlano-montażową, a 88 działa w obszarze finansów. Te dwa sektory zostały już wspomniane jako niezwykle istotne przy okazji small-capów. Biorąc pod uwagę najbardziej ogólny podział GPW na sektory. W takim ujęciu najsłabiej wypadaja grupa spółek z sektora paliwowo-energetycznego. Tutaj do czynienia mamy z mniejszą liczbą spółek, lecz o stosunkowo dużej kapitalizacji</p>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">L2_name</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Budownictwo</td>
+<td style="text-align: right;">42</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nieruchomości</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Informatyka</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Przemysł elektromaszynowy</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Gry</td>
 <td style="text-align: right;">22</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Oprogramowanie</td>
-<td style="text-align: right;">19</td>
+<td style="text-align: left;">Artykuły spożywcze</td>
+<td style="text-align: right;">20</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Sprzedaż nieruchomości</td>
-<td style="text-align: right;">18</td>
+<td style="text-align: left;">Odzież i kosmetyki</td>
+<td style="text-align: right;">19</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Działalność inwestycyjna</td>
 <td style="text-align: right;">17</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Odzież i obuwie</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: left;">Energia</td>
+<td style="text-align: right;">17</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Wynajem nieruchomości</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Biotechnologia</td>
 <td style="text-align: right;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Urządzenia mechaniczne</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Banki komercyjne</td>
-<td style="text-align: right;">13</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Materiały budowlane</td>
-<td style="text-align: right;">13</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Spośród 415 spółek wskazywanych przez GPW jako obecnie notowane na głównym parkiecie, 22 reprezentują branżę gamingową. Wśród najpopularniejszych sektorów swoją mocną reprezentację posiada budownictwo - sprzedaż nieruchomości (18), wynajem nieruchomości (15) oraz materiały budolwane (13).</p>
+<p>Spoglądając na najczęściej reprezentowane sektory biorąc pod uwagę drugi poziom klasyfikacji przyjęty przez GPW, dochodzimy do wniosku że na polskim parkiecie sporo do powiedzenia mają przedstawiciele z obszaru budownictwa i nieruchomości widoczne na pierwszych dwóch miejscach tabeli. Z jednej strony mamy do czynienia z produkcją budowlaną, a z drugiej strony z obrotem nieruchomościami. W takim ujęciu swoją siłę ujawnia także sektor IT - widzimy bowiem 33 spółki przypisane do kategorii “Informatyka” oraz 22 sklasyfikowane jako spółki gamingowe.</p>
+</section>
+<section id="branże-a-najważniejsze-indeksy-giełdowe" class="level2">
+<h2 class="anchored" data-anchor-id="branże-a-najważniejsze-indeksy-giełdowe">Branże a najważniejsze indeksy giełdowe</h2>
+<p>Mając już ogólny obraz tego czym zajmują się przeważnie spółki na GPW, nasza uwaga może skierować się na istotne indeksy giełdowe, szczególnie iż regularnie są punktem odniesienia w dyskusjach na temat sytuacji ekonomicznej w Polsce. A zatem czym zajmują się spółki, które wpływają na wizerunek gospodarki naszego kraju?</p>
+<div class="cell" data-paged.print="false">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 62%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sektor_L1</th>
+<th style="text-align: right;">wig20</th>
+<th style="text-align: right;">mwig40</th>
+<th style="text-align: right;">swig80</th>
+<th style="text-align: right;">other</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CHEMIA I SUROWCE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DOBRA KONSUMPCYJNE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FINANSE</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HANDEL I USŁUGI</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCHRONA ZDROWIA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PALIWA I ENERGIA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TECHNOLOGIE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">24</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Jeśli spojrzymy na główne indeksy z poziomu najbardziej ogólnego podziału sektorowego, w przypadku WIG20, najpopularniejszym sektorem są spółki finansowe (7 z 20), a w dalszej kolejności spółki handlowe (4 z 20). Te same dwa sektory, lecz w odwrotnej kolejności, dominują indeks mwig40. Indeks 80 spółek małych to natomiast w ponad 25% spółki przemysłowe / budowlano-montażowe, a w dalszej kolejności technologiczne, zajmujące się ochroną zdrowia oraz handlowe.</p>
 <div class="cell" data-paged.print="false">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">index</th>
-<th style="text-align: left;">industry</th>
-<th style="text-align: right;">n</th>
+<th style="text-align: left;">Sektor_L2</th>
+<th style="text-align: right;">liczba_społek</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">wig20</td>
-<td style="text-align: left;">Banki komercyjne</td>
+<td style="text-align: left;">Banki</td>
 <td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">wig20</td>
-<td style="text-align: left;">Artykuły codziennego użytku</td>
+<td style="text-align: left;">Górnictwo</td>
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">wig20</td>
+<td style="text-align: left;">Sieci handlowe</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">wig20</td>
 <td style="text-align: left;">Telekomunikacja</td>
 <td style="text-align: right;">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">mwig40</td>
 <td style="text-align: left;">Gry</td>
 <td style="text-align: right;">4</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">mwig40</td>
-<td style="text-align: left;">Banki komercyjne</td>
-<td style="text-align: right;">3</td>
-</tr>
 <tr class="even">
 <td style="text-align: left;">mwig40</td>
-<td style="text-align: left;">Energetyka</td>
+<td style="text-align: left;">Banki</td>
 <td style="text-align: right;">3</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">swig80</td>
-<td style="text-align: left;">Oprogramowanie</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: left;">mwig40</td>
+<td style="text-align: left;">Energia</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">swig80</td>
-<td style="text-align: left;">Biotechnologia</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">Budownictwo</td>
+<td style="text-align: right;">11</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">swig80</td>
-<td style="text-align: left;">Materiały budowlane</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">Informatyka</td>
+<td style="text-align: right;">9</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">other</td>
-<td style="text-align: left;">Działalność inwestycyjna</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: left;">swig80</td>
+<td style="text-align: left;">Przemysł elektromaszynowy</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">other</td>
-<td style="text-align: left;">Sprzedaż nieruchomości</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: left;">Nieruchomości</td>
+<td style="text-align: right;">30</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">other</td>
-<td style="text-align: left;">Gry</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: left;">Budownictwo</td>
+<td style="text-align: right;">29</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">other</td>
-<td style="text-align: left;">Wynajem nieruchomości</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: left;">Informatyka</td>
+<td style="text-align: right;">21</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Jeśli spojrzymy na poziom indeksów, w przypadku WIG20, najpopularniejszym sektorem są banki komercyjne (5 z 13 na całym GPW), mwig40 najpopularniejsi są producenci gier (4 spółki), swig80 to natomiast producenci oprogramowania (7 spółek). W przypadku spółek niezaklasyfikowanych do żadnych z wymienionych trzech indeksu, najczęściej występują podmioty podejmujące szeroko pojętą działalność inwestycyjną.</p>
+<p>Więcej informacji dostarcza nam sprawdzenie najczęściej występujących sektorów poziomu drugiego. W takim ujęciu, wig20 w 25% składa się z banków, w mwig40 najczęściej występują spółki gamingowe (4 z 40 - warto zwrócić na większe rozdrobnienie względem choćby wig20). Z kolei swig80 i pozostałe spółki to sytuacja omówiona przy okazji spojrzenia na całe GPW - dominacja spółek z obszaru Budownictwa, Nieruchomości, Informatyki.</p>
+<p>W tym miejscu do powyższych rozważań warto dodać adnotację, że liczebność danego sektora nie do końca będzie odzwierciedlać siły działające na wartość całych indeksów. Każda ze spółek ma bowiem okresowo ustaloną wagę i tak przykładowo, zgodnie ze stanem na październik 2023 roku, PKN Orlen posiada 14,40% udziału w indeksie wig20. Tego typu informacji można z powodzeniem szukać na <a href="gpwbenchmark.pl">gpwbenchmark.pl</a>.</p>
 </section>
 </section>
 <section id="podsumowanie" class="level1">
 <h1>Podsumowanie</h1>
 <p>Na Giełdzie Papierów Wartościowych swój segment spółek powinien znaleźć niemal każdy inwestor. Z jednej strony, na głównym parkiecie nowotowane są niewielkie podmioty o kapitalizacji oscylujacej w kwocie miliona złotych. Z drugiej zaś, nabyć można akcje ogromnych koncernów z branży paliwowej, czy bankowości. Słowo ogromne zostało tutaj użyte raczej w kontekście lokalnym, wszak obecne kapitalizacje chociażby Amazona (1.32 biliona USD), czy Apple (2.63 biliona USD) ciężko zestawiać nawet z polskimi blue-chipami.</p>
-<p>Jeśli chodzi natomiast o dostępność przedstawicieli poszczególnych branż, tutaj również wybór zdaje się być szeroki. Na stronie GPW wyróżnione zostały 82 branże, reprezentowane przez spółki głównego parkietu. Niewątpliwie każdy inwestor powinien mieć na uwadze jak spółki działające w poszczególnych obszarach wpływają na ogólny obraz rynku. Mowa tutaj chociażby o wpływie banków komercyjnych na wyniki wig20, czy chociażby spółki biotechnologiczne na swig80.</p>
+<p>Jeśli chodzi natomiast o dostępność przedstawicieli poszczególnych branż, tutaj również wybór zdaje się być szeroki. Na stronie GPW wyróżnione zostały 82 branże, reprezentowane przez spółki głównego parkietu. Niewątpliwie każdy inwestor powinien mieć na uwadze jak spółki działające w poszczególnych obszarach wpływają na ogólny obraz rynku. Mowa tutaj chociażby o wpływie banków komercyjnych na wyniki wig20, czy spółki produkcyjno-budowlane na swig80.</p>
 
 
 </section>

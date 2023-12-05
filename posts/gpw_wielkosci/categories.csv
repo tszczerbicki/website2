@@ -1,0 +1,110 @@
+L1_code,L1_name,L2_code,L2_name,L3_code,L3_name,Lowest_lvl
+100,FINANSE,110,Banki,111,Banki Komercyjne,Banki komercyjne
+100,FINANSE,110,Banki,112,Banki Spółdzielcze,Banki spółdzielcze
+100,FINANSE,110,Banki,113,Banki Hipoteczne,Banki hipoteczne
+100,FINANSE,110,Banki,114,Banki Państwowe I Międzynarodowe,Banki państwowe i międzynarodowe
+100,FINANSE,110,Banki,119,Banki - Pozostałe,Banki - pozostałe
+100,FINANSE,120,Ubezpieczenia,121,Firmy Ubezpieczeniowe,Firmy ubezpieczeniowe
+100,FINANSE,120,Ubezpieczenia,129,Ubezpieczenia - Pozostałe,Ubezpieczenia - pozostałe
+100,FINANSE,130,Rynek kapitałowy,131,Giełdy I Biura Maklerskie,Giełdy i biura maklerskie
+100,FINANSE,130,Rynek kapitałowy,132,Zarządzanie Aktywami,Zarządzanie aktywami
+100,FINANSE,130,Rynek kapitałowy,139,Rynek kapitałowy - Pozostałe,Rynek kapitałowy - pozostałe
+100,FINANSE,140,Nieruchomości,141,Sprzedaż Nieruchomości,Sprzedaż nieruchomości
+100,FINANSE,140,Nieruchomości,142,Wynajem Nieruchomości,Wynajem nieruchomości
+100,FINANSE,140,Nieruchomości,149,Nieruchomości - Pozostałe,Nieruchomości - pozostałe
+100,FINANSE,150,Leasing i faktoring,,,Leasing i faktoring
+100,FINANSE,160,Wierzytelności,,,Wierzytelności
+100,FINANSE,170,Pośrednictwo finansowe,,,Pośrednictwo finansowe
+100,FINANSE,180,Działalność inwestycyjna,,,Działalność inwestycyjna
+100,FINANSE,190,Finanse - Pozostałe,,,Finanse - pozostałe
+200,PALIWA I ENERGIA,210,Paliwa i gaz,211,Wydobycie I Produkcja,Wydobycie i produkcja
+200,PALIWA I ENERGIA,210,Paliwa i gaz,212,Dystrybucja Paliw I Gazu,Dystrybucja paliw i gazu
+200,PALIWA I ENERGIA,210,Paliwa i gaz,219,Paliwa i gaz - Pozostałe,Paliwa i gaz - pozostałe
+200,PALIWA I ENERGIA,220,Energia,221,Energetyka,Energetyka
+200,PALIWA I ENERGIA,220,Energia,222,Energia Odnawialna,Energia odnawialna
+200,PALIWA I ENERGIA,220,Energia,229,Energia - Pozostałe,Energia - pozostałe
+200,PALIWA I ENERGIA,230,Dystrybucja ciepła i wody,,,Dystrybucja ciepła i wody
+200,PALIWA I ENERGIA,290,Paliwa i energia - Pozostałe,,,Paliwa i energia - pozostałe
+300,CHEMIA I SUROWCE,310,Chemia,311,Chemia Podstawowa,Chemia podstawowa
+300,CHEMIA I SUROWCE,310,Chemia,312,Chemia Specjalistyczna,Chemia specjalistyczna
+300,CHEMIA I SUROWCE,310,Chemia,319,Chemia - Pozostałe,Chemia - pozostałe
+300,CHEMIA I SUROWCE,320,Górnictwo,321,Górnictwo Węgla,Górnictwo węgla
+300,CHEMIA I SUROWCE,320,Górnictwo,322,Górnictwo Metali,Górnictwo metali
+300,CHEMIA I SUROWCE,320,Górnictwo,329,Górnictwo - Pozostałe,Górnictwo - pozostałe
+300,CHEMIA I SUROWCE,330,Hutnictwo,331,Hutnictwo Żelaza I Stali,Hutnictwo żelaza i stali
+300,CHEMIA I SUROWCE,330,Hutnictwo,332,Hutnictwo Metali Nieżelaznych,Hutnictwo metali nieżelaznych
+300,CHEMIA I SUROWCE,330,Hutnictwo,339,Hutnictwo - Pozostałe,Hutnictwo - pozostałe
+300,CHEMIA I SUROWCE,340,Surowce budowlane,,,Surowce budowlane
+300,CHEMIA I SUROWCE,350,Guma i tworzywa sztuczne,351,Tworzywa Sztuczne,Tworzywa sztuczne
+300,CHEMIA I SUROWCE,350,Guma i tworzywa sztuczne,352,Wyroby Z Gumy,Wyroby z gumy
+300,CHEMIA I SUROWCE,350,Guma i tworzywa sztuczne,359,Guma i tworzywo - Pozostałe,Guma i tworzywo - pozostałe
+300,CHEMIA I SUROWCE,360,Drewno i papier,361,Drewno,Drewno
+300,CHEMIA I SUROWCE,360,Drewno i papier,362,Papier I Opakowania,Papier i opakowania
+300,CHEMIA I SUROWCE,360,Drewno i papier,369,Drewno i papier - Pozostałe,Drewno i papier - pozostałe
+300,CHEMIA I SUROWCE,370,Recykling,,,Recykling
+300,CHEMIA I SUROWCE,390,Chemia i surowce - Pozostałe,,,Chemia i surowce - pozostałe
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,410,Budownictwo,411,Budownictwo Ogólne,Budownictwo ogólne
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,410,Budownictwo,412,Budownictwo Przemysłowe,Budownictwo przemysłowe
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,410,Budownictwo,413,Inżynieria Lądowa I Wodna,Inżynieria lądowa i wodna
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,410,Budownictwo,414,Materiały Budowlane,Materiały budowlane
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,410,Budownictwo,415,Instalacje Budowlane I Telekomunikacyjne,Instalacje budowlane i telekomunikacyjne
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,410,Budownictwo,419,Budownictwo - Pozostałe,Budownictwo - pozostałe
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,420,Przemysł elektromaszynowy,421,Urządzenia Elektryczne,Urządzenia elektryczne
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,420,Przemysł elektromaszynowy,422,Urządzenia Mechaniczne,Urządzenia mechaniczne
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,420,Przemysł elektromaszynowy,423,Wyroby Metalowe,Wyroby metalowe
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,420,Przemysł elektromaszynowy,424,Środki Transportu,Środki transportu
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,420,Przemysł elektromaszynowy,429,Przemysł elektromaszynowy - Pozostałe,Przemysł elektromaszynowy - pozostałe
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,430,Transport i logistyka,431,Transport,Transport
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,430,Transport i logistyka,432,Logistyka,Logistyka
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,430,Transport i logistyka,439,Transport i logistyka - Pozostałe,Transport i logistyka - pozostałe
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,440,Zaopatrzenie przedsiębiorstw,441,Artykuły Elektryczne,Artykuły elektryczne
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,440,Zaopatrzenie przedsiębiorstw,442,Wyroby Hutnicze,Wyroby hutnicze
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,440,Zaopatrzenie przedsiębiorstw,443,Chemikalia,Chemikalia
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,440,Zaopatrzenie przedsiębiorstw,449,Zaopatrzenie przedsiębiorstw - Pozostałe,Zaopatrzenie przedsiębiorstw - pozostałe
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,450,Usługi dla przedsiębiorstw,,,Usługi dla przedsiębiorstw
+400,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA,490,PRODUKCJA PRZEMYSŁOWA I BUDOWLANO-MONTAŻOWA - Pozostałe,,,Produkcja przemysłowa i budowlano-montażowa - pozostałe
+500,DOBRA KONSUMPCYJNE,510,Artykuły spożywcze,511,Żywność,Żywność
+500,DOBRA KONSUMPCYJNE,510,Artykuły spożywcze,512,Napoje,Napoje
+500,DOBRA KONSUMPCYJNE,510,Artykuły spożywcze,513,Produkcja Rolna I Rybołówstwo,Produkcja rolna i rybołówstwo
+500,DOBRA KONSUMPCYJNE,510,Artykuły spożywcze,519,Artykuły spożywcze - Pozostałe,Artykuły spożywcze - pozostałe
+500,DOBRA KONSUMPCYJNE,520,Odzież i kosmetyki,521,Odzież I Obuwie,Odzież i obuwie
+500,DOBRA KONSUMPCYJNE,520,Odzież i kosmetyki,522,Kosmetyki I Chemia Gospodarcza,Kosmetyki i chemia gospodarcza
+500,DOBRA KONSUMPCYJNE,520,Odzież i kosmetyki,529,Odzież i kosmetyki - Pozostałe,Odzież i kosmetyki - pozostałe
+500,DOBRA KONSUMPCYJNE,530,Wyposażenie domu,531,Meble I Dywany,Meble i dywany
+500,DOBRA KONSUMPCYJNE,530,Wyposażenie domu,532,Sprzęt Elektryczny I Elektroniczny,Sprzęt elektryczny i elektroniczny
+500,DOBRA KONSUMPCYJNE,530,Wyposażenie domu,539,Wyposażenie domu - Pozostałe,Wyposażenie domu - pozostałe
+500,DOBRA KONSUMPCYJNE,540,Motoryzacja,541,Części Samochodowe,Części samochodowe
+500,DOBRA KONSUMPCYJNE,540,Motoryzacja,549,Motoryzacja - Pozostałe,Motoryzacja - pozostałe
+500,DOBRA KONSUMPCYJNE,590,DOBRA KONSUMPCYJNE - Pozostałe,,,Dobra konsumpcyjne - pozostałe
+600,HANDEL I USŁUGI,610,Handel hurtowy,611,Artykuły Spożywcze I Szybko Zbywalne,Artykuły spożywcze i szybko zbywalne
+600,HANDEL I USŁUGI,610,Handel hurtowy,612,Komputery I Elektronika,Komputery i elektronika
+600,HANDEL I USŁUGI,610,Handel hurtowy,619,Handel hurtowy - Pozostałe,Handel hurtowy - pozostałe
+600,HANDEL I USŁUGI,620,Sieci handlowe,621,Artykuły Codziennego Użytku,Artykuły codziennego użytku
+600,HANDEL I USŁUGI,620,Sieci handlowe,622,Elektronika Użytkowa,Elektronika użytkowa
+600,HANDEL I USŁUGI,620,Sieci handlowe,629,Sieci handlowe - Pozostałe,Sieci handlowe - pozostałe
+600,HANDEL I USŁUGI,630,Rekreacja i wypoczynek,631,Hotele I Restauracje,Hotele i restauracje
+600,HANDEL I USŁUGI,630,Rekreacja i wypoczynek,632,Biura Podróży,Biura podróży
+600,HANDEL I USŁUGI,630,Rekreacja i wypoczynek,633,Kluby Sportowe,Kluby sportowe
+600,HANDEL I USŁUGI,630,Rekreacja i wypoczynek,634,Sport I Rekreacja,Sport i rekreacja
+600,HANDEL I USŁUGI,630,Rekreacja i wypoczynek,639,Rekreacja i wypoczynek - Pozostałe,Rekreacja i wypoczynek - pozostałe
+600,HANDEL I USŁUGI,640,Media,641,Radio I Telewizja,Radio i telewizja
+600,HANDEL I USŁUGI,640,Media,642,Wydawnictwa,Wydawnictwa
+600,HANDEL I USŁUGI,640,Media,643,Reklama I Marketing,Reklama i marketing
+600,HANDEL I USŁUGI,640,Media,644,Portale Internetowe,Portale internetowe
+600,HANDEL I USŁUGI,640,Media,649,Media - Pozostałe,Media - pozostałe
+600,HANDEL I USŁUGI,650,Gry,,,Gry
+600,HANDEL I USŁUGI,660,Handel internetowy,,,Handel internetowy
+600,HANDEL I USŁUGI,690,Handel i usługi - Pozostałe,,,Handel i usługi - pozostałe
+700,OCHRONA ZDROWIA,710,Szpitale i przychodnie,,,Szpitale i przychodnie
+700,OCHRONA ZDROWIA,720,Sprzęt i materiały medyczne,,,Sprzęt i materiały medyczne
+700,OCHRONA ZDROWIA,730,Produkcja leków,,,Produkcja leków
+700,OCHRONA ZDROWIA,740,Dystrybucja leków,,,Dystrybucja leków
+700,OCHRONA ZDROWIA,750,Biotechnologia,,,Biotechnologia
+700,OCHRONA ZDROWIA,790,OCHRONA ZDROWIA - Pozostałe,,,Ochrona zdrowia - pozostałe
+800,TECHNOLOGIE,810,Telekomunikacja,,,Telekomunikacja
+800,TECHNOLOGIE,820,Informatyka,821,Oprogramowanie,Oprogramowanie
+800,TECHNOLOGIE,820,Informatyka,822,Systemy Informatyczne,Systemy informatyczne
+800,TECHNOLOGIE,820,Informatyka,823,Sprzęt Informatyczny,Sprzęt informatyczny
+800,TECHNOLOGIE,820,Informatyka,829,Informatyka - Pozostałe,Informatyka - pozostałe
+800,TECHNOLOGIE,830,Nowe technologie,,,Nowe technologie
+800,TECHNOLOGIE,890,TECHNOLOGIE - Pozostałe,,,Technologie - pozostałe
